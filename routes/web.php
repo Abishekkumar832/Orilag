@@ -42,6 +42,12 @@ Route::get('/category/forceDelete/{id}', [CategoryController::class, 'fullDelete
 
 Route::get('/brand/all', [BrandController::class, 'index'])->name('all.brands');
 Route::post('/brand/add', [BrandController::class, 'store'])->name('store.brand');
+Route::get('/brand/edit/{id}', [BrandController::class, 'edit']);
+Route::post('/brand/update/{id}', [BrandController::class, 'update']);
+Route::get('/delete/brand/{id}', [BrandController::class, 'delete']);
+
+Route::get('/multipictures/all', [BrandController::class, 'multiPicture'])->name('all.multipictures');
+Route::post('/multipictures/add', [BrandController::class, 'storeMultiplePictures'])->name('store.multipictures');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     $users = DB::table('users')->get();

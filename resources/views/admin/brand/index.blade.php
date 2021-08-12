@@ -27,6 +27,7 @@
                                         <th scope="col">Brand Name </th>
                                         <th scope="col">Brand Image</th>
                                         <th scope="col">Created at</th>
+                                        <th scope="col">Updated at</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -47,8 +48,16 @@
                                             @endif
                                         </td>
                                         <td>
+                                            @if($brand->updated_at == NULL)
+                                                <span class="text-danger">No Date</span>
+                                            @else
+                                            {{ $brand->updated_at->diffForHumans() }}
+                                            @endif
+                                        </td>
+                                        <td>
                                             <a href="{{ url('brand/edit/'.$brand->id) }}" class="btn btn-info">Edit</a>
-                                            <a href="{{ url('delete/brand/'.$brand->id) }}" class="btn btn-danger">Delete</a>
+                                            <a href="{{ url('delete/brand/'.$brand->id) }}" class="btn btn-danger"
+                                               onclick="return confirm('Are you sure want to delete the brand')" >Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach
