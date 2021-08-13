@@ -7,9 +7,14 @@ use App\Models\Brand;
 use App\Models\MultiPicture;
 use Illuminate\Support\Carbon;
 use Image;
+use Auth;
 
 class BrandController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     public function index() {
         $brands = Brand::latest()->paginate(5);
         return view('admin.brand.index', compact('brands'));
@@ -116,5 +121,10 @@ class BrandController extends Controller
             $multiple->save();
         }
         return Redirect()->back()->with('success', 'New Images added Successfully');
+    }
+
+    public function logout() {
+        Auth::logout();
+        return Redirect()->route('login')->with('status', 'Logout Successfully');
     }
 }

@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth');
+    }
     
     public function index() {
         // $categories = DB::table('categories')
@@ -65,8 +68,13 @@ class CategoryController extends Controller
         return Redirect()->back()->with('success', 'Category Deleted Successfully');
     }
 
+    public function restore($id) {
+        $restore = Category::withTrashed()->find($id)->restore();
+        return Redirect()->back()->with('success', 'Category Restored Successfully');
+    }
+
     public function fullDelete($id) {
-        $restore = Category::onlyTrashed()->find($id)->forceDelete();
+        $force_delete = Category::onlyTrashed()->find($id)->forceDelete();
         return Redirect()->back()->with('success', 'Category Permanently Deleted');
     }
 

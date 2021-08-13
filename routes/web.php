@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\DB;
 |
 */
 
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -50,7 +54,8 @@ Route::get('/multipictures/all', [BrandController::class, 'multiPicture'])->name
 Route::post('/multipictures/add', [BrandController::class, 'storeMultiplePictures'])->name('store.multipictures');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    $users = DB::table('users')->get();
+    // $users = DB::table('users')->get();
     // $users = User::all();
-    return view('dashboard', compact('users'));
+    return view('admin.index');
 })->name('dashboard');
+Route::get('/user/logout', [BrandController::class, 'logout'])->name('user.logout');
