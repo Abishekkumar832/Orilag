@@ -1,10 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            All Categories
-        </h2>
-    </x-slot>
-
+@extends('admin.admin_master')
+@section('admin')
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="row">
@@ -19,8 +14,9 @@
                         <div class="card-header">
                             All Category
                         </div>
+                        <div class="container mt-5">
                         <div class="card-body">
-                            <table class="table">
+                            <table class="table table-bordered">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
@@ -31,10 +27,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- @php($i = 1) -->
+                                    @php($i = 1)
                                     @foreach($categories as $category)
                                     <tr>
-                                        <th scope="row">{{ $categories->firstItem() + $loop->index }}</th>
+                                        <th scope="row">{{ $i++ }}</th>
                                         <td>{{ $category->category_name }}</td>
                                         <td>{{ $category->user->name }}</td>
                                         <td>
@@ -52,7 +48,7 @@
                                     @endforeach
                                 </tbody>                            
                             </table>
-                           {{ $categories->links() }} 
+                        </div>
                         </div>
                     </div>
                     <div class="card">
@@ -60,7 +56,7 @@
                             Trash List
                         </div>
                         <div class="card-body">
-                            <table class="table">
+                            <table class="table table-bordered table-hover dt-responsive">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
@@ -71,10 +67,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- @php($i = 1) -->
+                                    @php($i = 1)
                                     @foreach($trachCat as $category)
                                     <tr>
-                                        <th scope="row">{{ $categories->firstItem() + $loop->index }}</th>
+                                        <th scope="row">1{{ $i++ }}</th>
                                         <td>{{ $category->category_name }}</td>
                                         <td>{{ $category->user->name }}</td>
                                         <td>
@@ -92,7 +88,6 @@
                                     @endforeach
                                 </tbody>                            
                             </table>
-                           {{ $categories->links() }} 
                         </div>
                     </div>
                 </div>
@@ -117,4 +112,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+@endsection
