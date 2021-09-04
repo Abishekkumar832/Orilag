@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\JobController;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -52,6 +53,9 @@ Route::get('/delete/brand/{id}', [BrandController::class, 'delete']);
 
 Route::get('/multipictures/all', [BrandController::class, 'multiPicture'])->name('all.multipictures');
 Route::post('/multipictures/add', [BrandController::class, 'storeMultiplePictures'])->name('store.multipictures');
+
+Route::get('/jobs', [JobController::class, 'index'])->name('jobs');
+Route::post('category/job', [JobController::class, 'category'])->name('category/job');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     // $users = DB::table('users')->get();

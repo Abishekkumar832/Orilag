@@ -2,6 +2,6 @@
 
 @section('admin')
 
-gfgfg
+Welcome
 
 @endsection

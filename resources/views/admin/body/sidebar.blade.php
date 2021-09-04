@@ -14,9 +14,10 @@
     </a>
     <div class="collapse" id="ui-basic">
         <ul class="nav flex-column sub-menu">
-        <li class="nav-item"> <a class="nav-link" href="{{ route('all.brands') }}">Brand</a></li>
-        <li class="nav-item"> <a class="nav-link" href="{{ route('all.categories') }}">Category</a></li>
-        <li class="nav-item"> <a class="nav-link" href="{{ route('all.multipictures') }}">Multiple Images</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('all.brands') }}">Brand</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('all.categories') }}">Category</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('all.multipictures') }}">Multiple Images</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('jobs') }}">Jobs</a></li>
         </ul>
     </div>
     </li>
