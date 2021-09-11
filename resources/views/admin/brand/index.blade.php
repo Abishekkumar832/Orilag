@@ -15,7 +15,7 @@
                             All Brands
                         </div>
                         <div class="card-body">
-                            <table class="table">
+                            <table class="table" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>

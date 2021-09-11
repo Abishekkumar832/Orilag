@@ -373,7 +373,9 @@
   <script>
     $(document).ready(function() {
       $('.table').DataTable({
-        responsive: true
+        responsive: true,
+        scrollX: true,
+        scrollY: true,
       });
     });
 </script>
